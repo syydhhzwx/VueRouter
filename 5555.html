@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h3>欢饮光临</h3>
+    <router-link to="/exe">1</router-link>
+    <router-link to="/aba">2</router-link>
+
+    <router-view></router-view>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    let first = {
+        template:`<div>你说你爱我说我的优点很多</div>`
+    }
+    let two = {
+        template: `<div>求求你给点力让爱情无所畏惧</div>`
+    }
+    let myRouter = new VueRouter({
+        routes:[
+            {path:'/exe',component:first},
+            {path:'/aba',component:two},
+        ]
+    })
+    new Vue({
+        el: "#app",
+        data: {},
+        router:myRouter
+    })
+</script>
+</body>
+</html>

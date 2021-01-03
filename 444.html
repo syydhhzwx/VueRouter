@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+        <h3>主页的开头</h3>
+    <br>
+        <router-link to="/index">系统首页</router-link>
+        <router-link to="/stuend">学生管理</router-link>
+
+    <router-view></router-view>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    let first = {
+        template:`<div>童年的纸飞机现在终于飞回我手里</div>`
+    }
+    let second = {
+        template: `<div>幻听一个人的身边没有你</div>`
+    }
+    let myRouter = new VueRouter({
+        routes:[
+            {path:'/index',component:first},
+            {path:'/stuend',component:second},
+        ]
+    })
+    new Vue({
+        el: "#app",
+        data: {},
+        components: {
+            first: first,
+            second: second,
+        },
+        router:myRouter
+    })
+</script>
+</body>
+</html>

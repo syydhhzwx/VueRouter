@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    父组件username：{{username}}
+    <hr>
+    <com @btn="clickMe"></com>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    let com = {
+        template:`<div>这是子组件
+<!--        <button @click="change">点我</button>-->
+        {{this.name}}
+</div>`,
+        data:function () {
+            return {
+                name: 'python'
+            }
+        },
+        // methods:{
+        //     change(){
+        //         this.$emit('btn',this.name)
+        //     }
+        // }
+        created:function () {
+            this.$emit('btn',this.name)
+        }
+    }
+    new Vue({
+        el: "#app",
+        data: {
+            username:''
+        },
+        methods:{
+            clickMe(username){
+                this.username = username;
+            }
+        },
+        components:{
+            com:com
+        }
+    })
+</script>
+</body>
+</html>

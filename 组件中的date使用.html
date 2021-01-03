@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <com></com>
+    <h3>{{username}}</h3>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+let first = {
+   template:`<div>组件
+    <br>
+    <h3>data：{{username}}</h3>
+    </div>`,
+    data:function () {
+        return {
+            username: '小黑'
+        }
+    }
+}
+    Vue.component('com',first)
+    new Vue({
+        el: "#app",
+        data: {
+            username:'小白'
+        },
+    })
+// let first = {
+//     template: `
+//           <div>
+//           这又是一个组件
+//           <br>
+//           <h3>这是组件中的data: {{ username }}</h3>
+//           </div>
+//         `,
+//     // 组件中 data的定义是一个函数
+//     data: function () {
+//         // 数据定义完成后需要return出去
+//         return {
+//             username: "小黑",
+//         }
+//     }
+// }
+//
+// Vue.component("com", first)
+//
+// new Vue({
+//     el: "#app",
+//     data: {
+//         username: "小白",
+//     },
+// })
+</script>
+</body>
+</html>

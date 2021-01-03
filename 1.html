@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .red {
+        color: red;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+<body>
+
+<div id="app">
+
+    <com user="tom"></com>
+    <com user="tom" color="red"></com>
+    <com user="tom" color="blue"></com>
+
+</div>
+
+<script src="js/vue.min.js"></script>
+
+<script>
+
+    // 组件template中只能有一个根标签  不能有同级标签
+    let com = {
+        template: `
+          <div :class="color">这是我的第一个组件</div>`,
+        // 在组件内部接收标签上传递过来的参数时 可以使用props接收  可以使定义好的组件可以接收动态的属性
+        // props属性可以理解为一个数组 里面写的是所有可以接收的参数  相当于参数名
+        // 可以将props作为一个只读的data属性
+        props: ['user', 'color'],
+        created: function () {
+            console.log(this.user);
+        }
+    }
+
+    new Vue({
+        el: "#app",
+        data: {},
+        components: {
+            com: com,
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let app = (x,y) => console.log(x * y)
+    app(4,6)
+    let app2 = x => console.log(2*x)
+    app2(3)
+    let app3 = function (a,b) {
+        console.log(a + b)
+    }
+    let app4 = (a,b=5) => a + b;
+    console.log(app4(a=7,b=3));
+    app3(4,5)
+    let app7 = function (a) {
+        return a * 5;
+    }
+    console.log(app7(7));
+</script>
+</body>
+</html>

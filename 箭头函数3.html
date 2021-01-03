@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let user = {
+        username:'小黑',
+        pwd:123,
+        app:function () {
+            console.log(this.pwd);
+        }
+    }
+    user.app()
+    let stu = {
+        username:'小白',
+        app:function () {
+            setTimeout(function () {
+                console.log(this);
+            })
+        }
+    }
+    stu.app()
+    let emp = {
+        username:'小吕',
+        app:function () {
+            setTimeout(() => {
+                console.log(this.username);
+            })
+        }
+    }
+    emp.app()
+</script>
+</body>
+</html>
